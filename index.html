@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        svg {
+            width: 500px;
+            height: 500px;
+            background-color: lightblue;
+        }
+
+        circle {
+            fill: none;
+            stroke: black;
+            stroke-width: 2px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let svgNS = "http://www.w3.org/2000/svg";
+        let svg = document.createElementNS(svgNS, "svg");
+        svg.setAttributeNS(null, "viewBox", "0 0 1000 1000")
+        document.body.appendChild(svg)
+        
+        function createCircle(cx,cy,radius) {
+            let circle = document.createElementNS(svgNS, "circle")
+            circle.setAttribute("cx", cx)
+            circle.setAttribute("cy", cy)
+            circle.setAttribute("r", radius)
+            svg.appendChild(circle)
+        }
+        
+
+        for (let lines = 0; lines < 30; lines++) {
+            createCircle(
+                Math.random() * 1000,
+                Math.random() * 1000,
+                Math.random() * 450
+            )
+        }        
+        
+    </script>
+</body>
+</html>
